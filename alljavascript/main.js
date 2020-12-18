@@ -2,14 +2,17 @@
 
 let form = document.querySelector('form')
 let itemList = document.querySelector('ul');
-let boxes = document.querySelectorAll('.box')
+let boxes = document.querySelectorAll('.box');
+let div = document.querySelector('div');
 
 // form submit event
 form.addEventListener('submit',addItem);
 // form delete event
 itemList.addEventListener('click',deleteItem);
 // box color event
-document.querySelector('button').addEventListener('click',changeColor);
+document.querySelector('button').addEventListener('click', changeBoxColor);
+// div color event
+document.querySelector('div').addEventListener('mousemove', changeQuoteColor)
 
 function addItem (e){
     e.preventDefault();
@@ -31,15 +34,16 @@ function deleteItem(e){
     itemList.removeChild(e.target) // remove the clicked item
 }
 
-
-function changeColor(){
-    console.log(boxes.length)
+function changeBoxColor(){
     boxes[0].style.backgroundColor = "#" + 
     Math.floor(Math.random()*16777215).toString(16);
     boxes[0].className = 'box-filled';
     boxes = document.querySelectorAll('.box');    
     if(boxes.length == 0 ){
         document.querySelector('button').remove();
-    }
-    
+    }  
+}
+
+function changeQuoteColor(q){
+    div.style.backgroundColor = `rgb(${q.offsetX},${q.offsetY},50)`
 }
