@@ -56,4 +56,8 @@ b.appendChild(addTag('script',''));
 b.children[3].src = 'main.js'
 b.appendChild(addTag('footer','Copyright © 2020 Daniel Nguyen'))
 
+document.appendChild(
+    document.createElement('body')
+    )
+
 console.log(document.head.children[0])
