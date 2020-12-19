@@ -5,7 +5,7 @@ let itemList = document.querySelector('ul');
 let boxes = document.querySelectorAll('.box');
 let div = document.querySelector('div');
 
-// form submit event
+// add the submit event to addItem
 form.addEventListener('submit',addItem);
 // form delete event
 itemList.addEventListener('click',deleteItem);
@@ -21,7 +21,10 @@ function addItem (e){
         li = document.createElement('li')
 
         // Add Text node to li item
-        li.appendChild(document.createTextNode(document.querySelector('input[type="text"]').value))
+        li.appendChild(
+            document.createTextNode(
+            document.querySelector('input[type="text"]').value)
+            )
     
         // append input value to list item
         itemList.appendChild(li)
@@ -47,3 +50,4 @@ function changeBoxColor(){
 function changeQuoteColor(q){
     div.style.backgroundColor = `rgb(${q.offsetX},${q.offsetY},50)`
 }
+
